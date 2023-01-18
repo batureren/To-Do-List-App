@@ -46,7 +46,6 @@ add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
             event.stopPropagation();
             event.target.classList.replace('fa-regular', 'fa-solid');
             event.target.classList.replace('fa-square', 'fa-square-check');
-            li.classList.add("green")
             localStorage.setItem("toDoList", ul.innerHTML)
         }
         else if (event.target.classList.contains('fa-solid')){
@@ -54,7 +53,6 @@ add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
             event.stopPropagation();
             event.target.classList.replace('fa-solid', 'fa-regular');
             event.target.classList.replace('fa-square-check', 'fa-square');
-            li.classList.remove("green")
             localStorage.setItem("toDoList", ul.innerHTML)
         }
     } )
