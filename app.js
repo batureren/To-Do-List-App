@@ -13,6 +13,13 @@ let currentDate = `${date}/${month}/${year} ${hours}:${minutes}`
 let li = ""
 let counter = 0
 
+//!localstorage
+if (localStorage.getItem("toDoList")) {
+    ul.innerHTML = localStorage.getItem("toDoList")
+    counter = ul.children.length
+    mystuff.innerHTML = "MY LIST"
+  }
+
 add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
     if(input.value.trim() === ""){
       alert("You can't do that! Write something...")
@@ -25,6 +32,7 @@ add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
         li.innerHTML = `<button class='checkmark'><i class="fa-regular fa-square"></i></i></button>` + `<p>${input.value}</p>` + `<br><span>Created Date:</span> <b id="created-date">${currentDate} </b>` + `<button class='li'><i class='fas fa-trash-alt'></i></button>`
         input.value = ""
         input.focus();
+        localStorage.setItem("toDoList", ul.innerHTML)
       };
 
     })
@@ -36,12 +44,15 @@ add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
             event.target.classList.replace('fa-regular', 'fa-solid');
             event.target.classList.replace('fa-square', 'fa-square-check');
             li.classList.add("green")
+            localStorage.setItem("toDoList", ul.innerHTML)
         }
         else if (event.target.classList.contains('fa-solid')){
             event.target.parentElement.parentElement.querySelector("p").classList.toggle("lined")
             event.stopPropagation();
             event.target.classList.replace('fa-solid', 'fa-regular');
             event.target.classList.replace('fa-square-check', 'fa-square');
+            li.classList.remove("green")
+            localStorage.setItem("toDoList", ul.innerHTML)
         }
     } )
 
@@ -52,7 +63,9 @@ add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
             counter--;
             if (counter == 0) {
                 mystuff.innerHTML = ""
+                
             }
+            localStorage.setItem("toDoList", ul.innerHTML)
         }
     } )
 

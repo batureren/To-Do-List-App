@@ -84,6 +84,7 @@ button:hover{
 
 ul{
     list-style:none;
+    box-shadow: 1px 1px 1px black;
 }
 
 .li{
@@ -111,7 +112,7 @@ span{
     font-weight: 900;
 }
 
-.fa-square-check{
+.fa-solid{
     color: green;
 }
 
