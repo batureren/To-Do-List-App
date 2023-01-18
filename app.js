@@ -6,8 +6,11 @@ const ul = document.getElementById("ul")
 const now = new Date()
 const date = now.getDate()
 const month = now.getMonth() + 1;
-const hours = now.getHours()
-const minutes = now.getMinutes()
+const hours = (now.getHours() < 10 ? '0' : '') + now.getHours();
+const minutes = (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
+if (minutes < 10){
+
+}
 const year = now.getFullYear()
 let currentDate = `${date}/${month}/${year} ${hours}:${minutes}`
 let li = ""
