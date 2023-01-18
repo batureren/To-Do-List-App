@@ -8,9 +8,6 @@ const date = now.getDate()
 const month = now.getMonth() + 1;
 const hours = (now.getHours() < 10 ? '0' : '') + now.getHours();
 const minutes = (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
-if (minutes < 10){
-
-}
 const year = now.getFullYear()
 let currentDate = `${date}/${month}/${year} ${hours}:${minutes}`
 let li = ""
@@ -32,6 +29,7 @@ add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
         mystuff.innerHTML = "📖 MY LIST 📖"
         li = document.createElement("li")
         ul.appendChild(li);
+        $('li').addClass('show')
         li.innerHTML = `<button class='checkmark'><i class="fa-regular fa-square"></i></i></button>` + `<p>${input.value}</p>` + `<br><span>Created Date:</span> <b id="created-date">${currentDate} </b>` + `<button class='li'><i class='fas fa-trash-alt'></i></button>`
         input.value = ""
         input.focus();
@@ -72,5 +70,4 @@ add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
 
     window.addEventListener('keyup', (e) => {
     e.code === 'Enter' && add.click()
-    textarea.style.height = calcHeight(textarea.value) + "px";
 })
