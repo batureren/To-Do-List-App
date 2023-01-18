@@ -20,7 +20,7 @@ let counter = 0
 if (localStorage.getItem("toDoList")) {
     ul.innerHTML = localStorage.getItem("toDoList")
     counter = ul.children.length
-    mystuff.innerHTML = "MY LIST"
+    mystuff.innerHTML = "📖 MY LIST 📖"
   }
 
 add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
@@ -29,7 +29,7 @@ add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
       return;
     }else{
         counter++;
-        mystuff.innerHTML = "MY LIST"
+        mystuff.innerHTML = "📖 MY LIST 📖"
         li = document.createElement("li")
         ul.appendChild(li);
         li.innerHTML = `<button class='checkmark'><i class="fa-regular fa-square"></i></i></button>` + `<p>${input.value}</p>` + `<br><span>Created Date:</span> <b id="created-date">${currentDate} </b>` + `<button class='li'><i class='fas fa-trash-alt'></i></button>`
@@ -72,4 +72,5 @@ add.addEventListener("click", function() { //! Ekle tuşuna tıklama yapar
 
     window.addEventListener('keyup', (e) => {
     e.code === 'Enter' && add.click()
+    textarea.style.height = calcHeight(textarea.value) + "px";
 })
